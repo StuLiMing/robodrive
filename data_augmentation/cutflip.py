@@ -1,9 +1,6 @@
 import random
 import copy
 import numpy as np
-import cv2
-from PIL import Image
-
 
 def cutflip(image,depth,cut_graft=None,dim=0):
     """在 0.2h 和 0.8h 之间随机找一个点切一刀，将切分后的图片的上下两部分位置调换。
@@ -56,20 +53,3 @@ def cutflip(image,depth,cut_graft=None,dim=0):
             image[:,cut_list[i]:cut_list[i+1],:] = image_copy[:,cut_list_inv[i]-cut_interval_list[i]:cut_list_inv[i],:]
             depth[:,cut_list[i]:cut_list[i+1],:] = depth_copy[:,cut_list_inv[i]-cut_interval_list[i]:cut_list_inv[i],:]
     return image,depth
-
-
-if __name__=="__main__":
-    # 使用Pillow读取图像
-    img = Image.open('test.jpg')
-
-    # 将图像转换为NumPy数组
-    img_array = np.array(img)
-    depth=np.arange(img_array.shape[0]*img_array.shape[1]*img_array.shape[2]).reshape(img_array.shape)
-
-    img_array,depth=cutflip(img_array,depth,cut_graft=[int(img_array.shape[1]*0.3),int(img_array.shape[1]*0.4)],dim=1)
-
-    # 将NumPy数组转换为PIL图像
-    img = Image.fromarray(img_array)
-
-    # 保存图像到文件，假设我们保存为JPEG格式
-    img.save('new.jpg')
