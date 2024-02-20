@@ -92,7 +92,7 @@ def translate_x(pil_img, level):
 
 
 def translate_y(pil_img, level):
-  level = int(np.random.uniform(low=0.1, high=level/10) * pil_img.size[0] /5)
+  level = int(np.random.uniform(low=0.1, high=level/10) * pil_img.size[1] /5)
   if np.random.random() > 0.5:
     level = -level
   return pil_img.transform(pil_img.size,

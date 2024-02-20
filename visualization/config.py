@@ -45,6 +45,7 @@ _C.PATH.DATAROOT="C:\Users\lm\Desktop/robodrive/v1.0-mini"           # Path to m
 _C.PATH.EVALIMG="./images/eval"
 _C.PATH.GTIMG="./images/gt"
 _C.PATH.RGBIMG="./images/rgb"
+_C.PATH.WORK="./visualization"
 
 _C.GT=CN()
 _C.GT.MINDEPTH=0.1

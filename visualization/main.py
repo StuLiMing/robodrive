@@ -8,6 +8,7 @@ from load_gt import nuScenesDataset
 from config import cfg
 
 if __name__ == '__main__':
+    os.chdir(cfg.PATH.WORK)
     orientation="back"
     idx=100
     sensor=orientation2camera(orientation)
